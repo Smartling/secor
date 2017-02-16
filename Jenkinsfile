@@ -10,7 +10,7 @@ node {
             def server = Artifactory.server('smartling')
 
             def rtMaven = Artifactory.newMavenBuild()
-            rtMaven.tool = 'M4'
+            rtMaven.tool = 'mvn'
             rtMaven.resolver repo:'local-snapshots',  server: server
             rtMaven.deployer repo:'local-snapshots',  server: server
 
