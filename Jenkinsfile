@@ -15,7 +15,7 @@ node {
             maven.tool = 'mvn'
             maven.deployer.deployMavenDescriptors = true
 
-            def buildInfo = maven.run goals: 'clean install'
+            def buildInfo = maven.run pom: 'pom.xml', goals: 'clean install'
 
             server.publishBuildInfo buildInfo
 
