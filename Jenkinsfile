@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 node {
-    stage 'Gradle Build'
+    stage 'Maven Build'
 
     try {
         checkout scm
@@ -9,14 +9,13 @@ node {
         try {
             def server = Artifactory.server('smartling')
 
-            def gradle = Artifactory.newGradleBuild()
-            gradle.tool = 'gradle'
-            gradle.deployer repo:'local-snapshots',  server: server
-            gradle.deployer.deployMavenDescriptors = true
-            gradle.resolver repo:'local-snapshots',  server: server
+            def maven = Artifactory.newMavenBuild()
+            maven.resolver repo:'local-snapshots',  server: server
+            maven.deployer repo:'local-snapshots',  server: server
+            maven.tool = 'mvn'
+            maven.deployer.deployMavenDescriptors = true
 
-
-            def buildInfo = gradle.run tasks: 'clean build artifactoryPublish'
+            def buildInfo = maven.run goals: 'clean install'
 
             server.publishBuildInfo buildInfo
 
