@@ -9,14 +9,14 @@ node {
         try {
             def server = Artifactory.server('smartling')
 
-            def maven = Artifactory.newMavenBuild()
-            maven.tool = MAVEN_TOOL
-            maven.resolver repo:'local-snapshots',  server: server
-            maven.deployer repo:'local-snapshots',  server: server
+            def rtMaven = Artifactory.newMavenBuild()
+            rtMaven.tool = MAVEN_TOOL
+            rtMaven.resolver repo:'local-snapshots',  server: server
+            rtMaven.deployer repo:'local-snapshots',  server: server
 
             def buildInfo = Artifactory.newBuildInfo()
 
-            maven.run pom: 'pom.xml', goals: 'clean install', buildInfo: buildInfo
+            rtMaven.run pom: 'pom.xml', goals: 'clean install', buildInfo: buildInfo
 
             server.publishBuildInfo buildInfo
 
