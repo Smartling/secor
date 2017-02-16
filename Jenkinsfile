@@ -13,9 +13,10 @@ node {
             maven.resolver repo:'local-snapshots',  server: server
             maven.deployer repo:'local-snapshots',  server: server
             maven.tool = 'mvn'
-            maven.deployer.deployMavenDescriptors = true
 
-            def buildInfo = maven.run pom: 'pom.xml', goals: 'clean install'
+            def buildInfo = Artifactory.newBuildInfo()
+
+            maven.run pom: 'pom.xml', goals: 'clean install', buildInfo: buildInfo
 
             server.publishBuildInfo buildInfo
 
