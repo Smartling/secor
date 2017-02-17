@@ -597,9 +597,6 @@
         </profile>
         <profile>
             <id>kafka-0.8-dev</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <dependencies>
                 <dependency>
                     <groupId>org.apache.kafka</groupId>
@@ -616,6 +613,9 @@
         </profile>
         <profile>
             <id>kafka-0.10-dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <dependencies>
                 <dependency>
                     <groupId>org.apache.kafka</groupId>
