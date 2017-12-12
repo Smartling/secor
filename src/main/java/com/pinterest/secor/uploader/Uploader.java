@@ -139,9 +139,11 @@ public class Uploader {
             return;
         }
 
-        if (System.getProperty("exitOnTrim") != null)
+        if (System.getProperty("exitOnTrim") != null) {
             // trim works incorrectly, so I exit the app to restart container and start everything from scratch
+            LOG.warn("Force exit the app to restart container!");
             System.exit(43);
+        }
 
         FileReader reader = null;
         FileWriter writer = null;
