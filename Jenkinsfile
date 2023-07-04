@@ -1,9 +1,11 @@
 node {
-   def mvnHome
    stage('Build') {
+      checkout scm
+
       env.JAVA_HOME="${tool 'java7'}"
       env.PATH="${env.JAVA_HOME}/bin:${env.PATH}"
-      mvnHome = tool 'mvn'
+
+      def mvnHome = tool 'mvn'
 
       sh "'${mvnHome}/bin/mvn' clean package"
    }
