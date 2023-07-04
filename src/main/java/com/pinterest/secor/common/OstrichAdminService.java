@@ -16,6 +16,7 @@
  */
 package com.pinterest.secor.common;
 
+import java.util.Arrays;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -25,8 +26,8 @@ import com.twitter.util.Duration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scala.Option;
+import scala.collection.JavaConversions;
 import scala.collection.Map$;
-import scala.collection.immutable.List;
 import scala.collection.immutable.List$;
 import scala.util.matching.Regex;
 
@@ -53,7 +54,7 @@ public class OstrichAdminService {
             Option.<String>empty(),
             List$.MODULE$.<Regex>empty(),
             Map$.MODULE$.<String, CustomHttpHandler>empty(),
-            List.<Duration>fromArray(defaultLatchIntervals)
+            List$.MODULE$.apply(JavaConversions.asScalaBuffer(Arrays.asList(defaultLatchIntervals)))
         );
         RuntimeEnvironment runtimeEnvironment = new RuntimeEnvironment(this);
         adminServiceFactory.apply(runtimeEnvironment);

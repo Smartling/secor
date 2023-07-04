@@ -6,7 +6,7 @@
 
     <groupId>com.smartling</groupId>
     <artifactId>secor</artifactId>
-    <version>0.26-kafka-test-SNAPSHOT</version>
+    <version>0.26-kafka-test-1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>secor</name>
     <description>Kafka to s3/gs/swift logs exporter</description>
@@ -230,11 +230,6 @@
             <groupId>org.apache.thrift</groupId>
             <artifactId>libthrift</artifactId>
             <version>0.5.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.twitter</groupId>
-            <artifactId>ostrich_2.10</artifactId>
-            <version>9.2.1</version>
         </dependency>
         <dependency>
             <groupId>com.twitter.common.zookeeper</groupId>
@@ -606,6 +601,11 @@
                         </exclusion>
                     </exclusions>
                 </dependency>
+                <dependency>
+                    <groupId>com.twitter</groupId>
+                    <artifactId>ostrich_2.10</artifactId>
+                    <version>9.2.1</version>
+                </dependency>
             </dependencies>
         </profile>
         <profile>
@@ -636,6 +636,11 @@
                         </exclusion>
                     </exclusions>
                 </dependency>
+                <dependency>
+                    <groupId>com.twitter</groupId>
+                    <artifactId>ostrich_2.10</artifactId>
+                    <version>9.2.1</version>
+                </dependency>
             </dependencies>
         </profile>
         <profile>
@@ -651,6 +656,11 @@
                             <artifactId>slf4j-simple</artifactId>
                         </exclusion>
                     </exclusions>
+                </dependency>
+                <dependency>
+                    <groupId>com.twitter</groupId>
+                    <artifactId>ostrich_2.10</artifactId>
+                    <version>9.2.1</version>
                 </dependency>
             </dependencies>
         </profile>
@@ -670,6 +680,11 @@
                             <artifactId>slf4j-simple</artifactId>
                         </exclusion>
                     </exclusions>
+                </dependency>
+                <dependency>
+                    <groupId>com.twitter</groupId>
+                    <artifactId>ostrich_2.11</artifactId>
+                    <version>9.8.0</version>
                 </dependency>
             </dependencies>
         </profile>
