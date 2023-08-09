@@ -128,6 +128,8 @@ public class KafkaClient {
                           MAX_MESSAGE_SIZE_BYTES)
                 .requestVersion((short) 5)
                 .build();
+        LOG.info("Fetch request is {}", request.describe(false));
+
         FetchResponse response = consumer.fetch(request);
         if (response.hasError()) {
             consumer.close();
