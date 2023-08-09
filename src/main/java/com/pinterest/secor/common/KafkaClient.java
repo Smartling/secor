@@ -126,6 +126,7 @@ public class KafkaClient {
         kafka.api.FetchRequest request = new FetchRequestBuilder().clientId(clientName)
                 .addFetch(topicPartition.getTopic(), topicPartition.getPartition(), offset,
                           MAX_MESSAGE_SIZE_BYTES)
+                .requestVersion((short) 5)
                 .build();
         FetchResponse response = consumer.fetch(request);
         if (response.hasError()) {
