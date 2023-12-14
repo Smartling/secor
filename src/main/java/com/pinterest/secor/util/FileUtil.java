@@ -1,18 +1,20 @@
-/**
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
  */
 package com.pinterest.secor.util;
 
@@ -60,6 +62,7 @@ public class FileUtil {
                 mConf.set("fs.swift.service.GENERICPROJECT.auth.url", config.getSwiftAuthUrl());
                 mConf.set("fs.swift.service.GENERICPROJECT.username", config.getSwiftUsername());
                 mConf.set("fs.swift.service.GENERICPROJECT.tenant", config.getSwiftTenant());
+                mConf.set("fs.swift.service.GENERICPROJECT.region", config.getSwiftRegion());
                 mConf.set("fs.swift.service.GENERICPROJECT.http.port", config.getSwiftPort());
                 mConf.set("fs.swift.service.GENERICPROJECT.use.get.auth", config.getSwiftGetAuth());
                 mConf.set("fs.swift.service.GENERICPROJECT.public", config.getSwiftPublic());
@@ -195,11 +198,6 @@ public class FileUtil {
         }
     }
 
-    public static void deleteOnExit(String path) {
-        File file = new File(path);
-        file.deleteOnExit();
-    }
-
     public static void moveToCloud(String srcLocalPath, String dstCloudPath) throws IOException {
         Path srcPath = new Path(srcLocalPath);
         Path dstPath = new Path(dstCloudPath);
@@ -238,9 +236,9 @@ public class FileUtil {
     }
     
     /** Generate MD5 hash of topic and partitions. And extract first 4 characters of the MD5 hash.
-     * @param topic
-     * @param partitions
-     * @return
+     * @param topic topic name
+     * @param partitions partitions
+     * @return md5 hash
      */
     public static String getMd5Hash(String topic, String[] partitions) {
       ArrayList<String> elements = new ArrayList<String>();
