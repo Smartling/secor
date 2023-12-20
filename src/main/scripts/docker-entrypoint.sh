@@ -121,6 +121,16 @@ if [ ! -z "$SECOR_MESSAGE_PARSER" ]; then
     SECOR_CONFIG="$SECOR_CONFIG -Dsecor.message.parser.class=$SECOR_MESSAGE_PARSER"
     echo "secor.message.parser.class=$SECOR_MESSAGE_PARSER"
 fi
+if [ ! -z "$KAFKA_OFFSETS_STORAGE" ]; then
+    SECOR_CONFIG="$SECOR_CONFIG -Dkafka.offsets.storage=$KAFKA_OFFSETS_STORAGE"
+    echo "kafka.offsets.storage=$KAFKA_OFFSETS_STORAGE"
+fi
+if [ ! -z "$KAFKA_DUAL_COMMIT_ENABLED" ]; then
+    SECOR_CONFIG="$SECOR_CONFIG -Dkafka.dual.commit.enabled=$KAFKA_DUAL_COMMIT_ENABLED"
+    echo "kafka.dual.commit.enabled=$KAFKA_DUAL_COMMIT_ENABLED"
+fi
+
+
 SECOR_CONFIG="$SECOR_CONFIG $SECOR_EXTRA_OPTS"
 
 
